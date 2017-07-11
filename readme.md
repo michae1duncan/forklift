@@ -56,7 +56,9 @@ If the property is a list then the value is appended to the existing list.
 
 ## Install to First Successful Run
 
-From within the [ArcGIS Pro conda environment](http://pro.arcgis.com/en/pro-app/arcpy/get-started/using-conda-with-arcgis-pro.htm) (`c:\Program Files\ArcGIS\Pro\bin\Python\scripts\proenv.bat`):
+__Note__: It is recommended that you create a clone of the `arcgispro-py3` [conda](https://conda.io/docs/intro.html) environment in which to run forklift (e.g. `conda create -n forklift-env --clone=arcgispro-py3`). This way you don't muddy the waters of the default environment.
+
+From within the [ArcGIS Pro conda environment](http://pro.arcgis.com/en/pro-app/arcpy/get-started/using-conda-with-arcgis-pro.htm) (`c:\Program Files\ArcGIS\Pro\bin\Python\scripts\proenv.bat` or `activate forklift-env`):
 1. `pip install .\` from the directory containing `setup.py`.
 1. `forklift config init`
 1. `forklift config set --key copyDestinations --value c:\\MapData` - This is where you want your output placed.
@@ -87,7 +89,6 @@ From within the [ArcGIS Pro conda environment](http://pro.arcgis.com/en/pro-app/
 On first run: `pip install tox`
 
 On subsequent runs: `tox`
-
 
 Tests that depend on a local SDE database (see `tests/data/UPDATE_TESTS.bak`) will automatically be skipped if it is not found on your system.
 
